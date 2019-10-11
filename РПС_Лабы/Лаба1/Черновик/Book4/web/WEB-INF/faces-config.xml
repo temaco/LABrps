@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<managed-bean>
+        <managed-bean-name>sessionBean</managed-bean-name>
+        <managed-bean-class>my_class.SessionManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <managed-bean>    
+        <managed-bean-name>book</managed-bean-name>
+        <managed-bean-class>my_class.book</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>session</property-name>
+            <value>#{SessionManagedBean}</value>
+        </managed-property>
+    </managed-bean>
+    
+    <navigation-rule>
+        <from-view-id>/create.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
